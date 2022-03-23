@@ -1,15 +1,13 @@
 import * as React from "react";
-import clsx from "clsx";
-import { button } from "./button.css";
 
 export const Button = React.forwardRef<
   HTMLButtonElement,
   JSX.IntrinsicElements["button"]
->(({ className, ...restProps }, forwardedRef) => (
+>((props, forwardedRef) => (
   <button
-    className={clsx(button, className)}
+    className="bg-black text-white px-4 py-1"
     ref={forwardedRef}
-    {...restProps}
+    {...props}
   />
 ));
 

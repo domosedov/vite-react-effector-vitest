@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import { App } from "./app";
 import { fork } from "effector";
 import { Provider } from "effector-react/scope";
+import "./index.css";
+import { App } from "./app";
 
 const scope = fork();
 
