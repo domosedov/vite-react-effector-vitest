@@ -2,17 +2,18 @@ import { render, screen } from "@testing-library/react";
 import user from "@testing-library/user-event";
 import { fork } from "effector";
 import { Provider } from "effector-react/scope";
-import { App } from "./app";
-import * as model from "./model";
+import { MemoryRouter } from "react-router-dom";
+import { HomePage } from "./page";
+import * as model from "~/model";
 
 describe("app.tsx", () => {
-  const scope = fork({
-    values: [[model.count, 10]],
-  });
+  const scope = fork({ values: [[model.count, 10]] });
   it("renders without crashing", () => {
     render(
       <Provider value={scope}>
-        <App />
+        <MemoryRouter>
+          <HomePage />
+        </MemoryRouter>
       </Provider>
     );
 
@@ -20,7 +21,7 @@ describe("app.tsx", () => {
 
     expect(heading).toBeInTheDocument();
 
-    const increment = screen.getByText("Hello");
+    const increment = screen.getByText(/Inc/);
 
     user.click(increment);
     user.click(increment);
