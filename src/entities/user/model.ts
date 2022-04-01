@@ -3,7 +3,7 @@ import { createEffect, createEvent, createStore } from "effector";
 import { User } from "./types";
 
 export const fetchUserFx = createEffect<
-  AxiosRequestConfig<void>,
+  void,
   AxiosResponse<User, void>,
   AxiosError<unknown, void>
 >(() =>

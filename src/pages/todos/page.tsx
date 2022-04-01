@@ -3,7 +3,6 @@ import { useStore, useEvent } from "effector-react";
 import { model as todoModel } from "~/entities/todo";
 import { model as userModel } from "~/entities/user";
 import * as pageModel from "./model";
-import { Link } from "react-router-dom";
 
 export const TodosPage: React.FC = () => {
   const todos = useStore(todoModel.$todos);
@@ -27,9 +26,12 @@ export const TodosPage: React.FC = () => {
   return (
     <div className={"container"}>
       <h1>Todos Page</h1>
-      <Link to="/">Home</Link>
-      <pre>{JSON.stringify(user, null, 2)}</pre>
-      <pre>{JSON.stringify(todos, null, 2)}</pre>
+      <div className="user-card">{user.name}</div>
+      <ul>
+        {todos.map((todo) => (
+          <li key={todo.id}>{todo.title}</li>
+        ))}
+      </ul>
     </div>
   );
 };

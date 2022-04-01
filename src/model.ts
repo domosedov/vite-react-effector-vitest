@@ -1,10 +1,12 @@
-import { createStore, createEvent } from "effector";
+import * as React from "react";
+import { createStore, createEvent, createEffect } from "effector";
 import { createCounter } from "~/shared/factories/create_counter";
 
 export const { count, increment } = createCounter();
 
-export const changeText = createEvent<string>();
+export const changeText = createEvent<React.ChangeEvent<HTMLInputElement>>();
 
-export const $text = createStore("").on(changeText, (_, text) => text);
-
-$text.watch(console.log);
+export const $text = createStore("").on(
+  changeText,
+  (_, event) => event.target.value
+);

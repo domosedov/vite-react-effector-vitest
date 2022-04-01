@@ -1,6 +1,5 @@
 import * as React from "react";
 import { reflect } from "@effector/reflect";
-import { Link } from "react-router-dom";
 import * as model from "~/model";
 
 type ViewProps = {
@@ -12,7 +11,6 @@ const View: React.FC<ViewProps> = ({ count, increment }) => {
   return (
     <div>
       <h1>Count: {count}</h1>
-      <Link to="/todos">Todos</Link>
       <button onClick={increment} type="button">
         Inc
       </button>

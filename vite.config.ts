@@ -13,14 +13,16 @@ export default defineConfig(({ mode }) => {
   ];
 
   if (mode === "test") {
-    resolveAliases.push({
-      find: /^effector-react$/,
-      replacement: "effector-react/scope",
-    });
-    resolveAliases.push({
-      find: /^@effector\/reflect$/,
-      replacement: "@effector/reflect/ssr",
-    });
+    resolveAliases.push(
+      {
+        find: /^effector-react$/,
+        replacement: "effector-react/scope",
+      },
+      {
+        find: /^@effector\/reflect$/,
+        replacement: "@effector/reflect/ssr",
+      }
+    );
   }
 
   return {
